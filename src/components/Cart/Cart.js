@@ -1,7 +1,7 @@
 import classes from './Cart.module.css';
 
 const Cart = (props) => {
-  const cartItems = [{id: 'c1', name: 'sushi', amount: 2, price: 12,99}]
+  const cartItems = [{id: 'c1', name: 'sushi', amount: 2, price: 12.99}]
     .map(item => <li>{item.name}</li>);
 
   return (
