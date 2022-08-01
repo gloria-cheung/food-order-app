@@ -13,8 +13,23 @@ const Cart = (props) => {
   
   const hasItems = cartCtx.items.length > 0;
  
+  const removeItemHandler = (id) => {
+
+  };
+
+  const addItemHandler = (item) => {
+
+  };
+
   const cartItems = cartCtx.items
-    .map(item => <CartItem key={item.id} {...item} onAdd={} onRemove={} />);
+    .map(item => (
+      <CartItem 
+        key={item.id} 
+        {...item} 
+        onAdd={() => {addItemHandler(item)}} 
+        onRemove={() => {removeItemHandler(item.id)}} 
+      />
+    ));
 
   return (
     <Modal onClose={onClose} >
