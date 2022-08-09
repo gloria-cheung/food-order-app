@@ -1,10 +1,11 @@
 # Food Order Project
 
-A Food Order application created with Create React App where user can add/remove food items to/from cart, rendering the total amount of items in cart along with final total price. 
+A Food Order application created with Create React App where user can add/remove food items to/from cart, rendering the total amount of items in cart along with final total price.
 
 ## Final Product
 
-Demo Video:
+### Demo Video:
+
 !["demo"](./public/foodapp.gif)
 
 ## Getting Started
