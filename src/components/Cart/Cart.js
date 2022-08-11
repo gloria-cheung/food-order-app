@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import axios from "axios";
 
 import Modal from "../UI/Modal";
 import classes from "./Cart.module.css";
@@ -25,6 +26,17 @@ const Cart = (props) => {
 
   const orderHandler = () => {
     setIsCheckout(true);
+  };
+
+  const submitOrderHandler = (userData) => {
+    axios
+      .post(
+        "https://react-http-92413-default-rtdb.firebaseio.com/orders.json",
+        { user: userData, orderedItems: cartCtx.items }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   const cartItems = cartCtx.items.map((item) => (
@@ -60,7 +72,9 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      {isCheckout && <Checkout onCancel={onClose} />}
+      {isCheckout && (
+        <Checkout onCancel={onClose} onConfirm={submitOrderHandler} />
+      )}
       {!isCheckout && modalActions}
     </Modal>
   );
