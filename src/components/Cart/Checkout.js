@@ -12,7 +12,7 @@ const Checkout = (props) => {
     postalCode: true,
   });
 
-  const { onCancel } = props;
+  const { onCancel, onConfirm } = props;
 
   const nameInputRef = useRef();
   const streetInputRef = useRef();
@@ -48,6 +48,12 @@ const Checkout = (props) => {
     if (!formIsValid) {
       return;
     }
+    onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      postalCode: enteredPostalCode,
+      city: enteredCity,
+    });
   };
 
   return (
