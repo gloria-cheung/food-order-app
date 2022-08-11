@@ -6,8 +6,11 @@ import classes from "./AvailableMeals.module.css";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     axios
       .get("https://react-http-92413-default-rtdb.firebaseio.com/meals.json")
       .then((responseData) => {
@@ -23,11 +26,20 @@ const AvailableMeals = () => {
         }
 
         setMeals(loadedMeals);
+        setIsLoading(false);
       })
       .catch((e) => {
         console.log(e);
       });
   }, []);
+
+  if (isLoading) {
+    return (
+      <section className={classes.MealsLoading}>
+        <p>Loading...</p>
+      </section>
+    );
+  }
 
   const mealsList = meals.map((meal) => <MealItem {...meal} key={meal.id} />);
 
