@@ -1,12 +1,14 @@
 # Food Order Project
 
-A Food Order application created with Create React App where user can add/remove food items to/from cart, rendering the total amount of items in cart along with final total price. (data fetched from firebase)
+A Food Order application created with Create React App where user can add/remove food items to/from cart, rendering the total amount of items in cart along with final total price. The order can then be submitted to a backend database hosted on firebase.
+
+Deployed [here](https://reactmeals-app.herokuapp.com/)
 
 ## Final Product
 
 ### Demo Video:
 
-!["demo"](./public/foodapp.gif)
+!["demo"](./public/food-app.gif)
 
 ## Getting Started
 
