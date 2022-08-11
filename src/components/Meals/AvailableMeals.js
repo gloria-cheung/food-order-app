@@ -7,6 +7,7 @@ import classes from "./AvailableMeals.module.css";
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [httpError, setHttpError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -14,6 +15,10 @@ const AvailableMeals = () => {
     axios
       .get("https://react-http-92413-default-rtdb.firebaseio.com/meals.json")
       .then((responseData) => {
+        if (responseData.request.status !== 200) {
+          throw new Error("Something went wrong!");
+        }
+
         const loadedMeals = [];
 
         for (let key in responseData.data) {
@@ -30,6 +35,8 @@ const AvailableMeals = () => {
       })
       .catch((e) => {
         console.log(e);
+        setIsLoading(false);
+        setHttpError(e.message);
       });
   }, []);
 
@@ -37,6 +44,14 @@ const AvailableMeals = () => {
     return (
       <section className={classes.MealsLoading}>
         <p>Loading...</p>
+      </section>
+    );
+  }
+
+  if (httpError) {
+    return (
+      <section className={classes.MealsError}>
+        <p>{httpError}</p>
       </section>
     );
   }
