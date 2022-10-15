@@ -19,3 +19,9 @@ Deployed [here](https://reactmeals-app.herokuapp.com/)
 ## Dependencies
 
 - create react app
+
+## Connect With Me
+
+[Github](https://github.com/gloria-cheung)
+-- [Linkedin](http://www.linkedin.com/in/gloria-cheung) --
+[Portfolio](http://www.gloria-cheung.com)
